@@ -1,7 +1,7 @@
 # 🤖 Telegram bot for Fortnite
 ### Intro
 This project is a simple [Telegram bot](https://core.telegram.org/bots/api) aimed at [Fortnite](https://www.fortnite.com/) players.<br>
-The project is built to be deployed to [AWS lambda](https://aws.amazon.com/lambda/?nc1=h_ls). It is built on [webhooks](https://core.telegram.org/bots/webhooks) and the [API Gateway](https://aws.amazon.com/api-gateway/).<br>
+The project is built to be self hosted (raspberry pi is perfect).<br>
 
 ### Features
 The bot currently serves 3 functions : 
