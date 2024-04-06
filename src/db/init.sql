@@ -1,0 +1,7 @@
+CREATE TABLE IF NOT EXISTS players (
+    tg_id INTEGER PRIMARY KEY,
+    fortnite_username TEXT NOT NULL,
+    kills INTEGER NOT NULL DEFAULT 0,
+    deaths INTEGER NOT NULL DEFAULT 0,
+    matches INTEGER NOT NULL DEFAULT 0,
+);

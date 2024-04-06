@@ -1,0 +1,19 @@
+[tool.poetry]
+name = "fortnite-telegram-bot"
+version = "0.1.0"
+description = "Telegram bot for fortnite teams (stats, updates & more). Self-hosted docker version."
+authors = ["f1she3 <f1she3@protonmail.com>"]
+license = "MIT"
+readme = "README.md"
+packages = [{include = "fortnite_telegram_bot"}]
+
+[tool.poetry.dependencies]
+python = "^3.12"
+python-telegram-bot = "^21.0.1"
+fortnite-api = "^2.6.5"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
