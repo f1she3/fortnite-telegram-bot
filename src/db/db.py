@@ -12,17 +12,23 @@ def db_init():
     If the database already exists, return True.
     If the database does not exist, create it and return True.
     """
-    if not os.path.exists(constants.DB_PATH):
+    init_path=os.path.join(
+        os.path.dirname(
+            os.path.abspath(__file__)
+        ),
+        "init.sql"
+    )
+    if not os.path.exists(constants.DB_ABS_PATH):
         # Database does not exist, create it
-        conn = sqlite3.connect(constants.DB_PATH)
+        conn = sqlite3.connect(constants.DB_ABS_PATH)
         cursor = conn.cursor()
 
         # Read the SQL commands from the init.sql file
-        with open("init.sql", "r", encoding="utf-8") as f:
-            sql_commands = f.read()
+        with open(init_path, "r", encoding="utf-8") as f:
+            query = f.read()
+            # Execute the SQL commands
+            cursor.execute(query)
 
-        # Execute the SQL commands
-        cursor.executescript(sql_commands)
 
         # Commit the changes and close the connection
         conn.commit()
@@ -34,7 +40,7 @@ def db_get_all_rows(table_name:str):
     and return them as a list of dictionaries, where each dictionary
     represents a row and has keys corresponding to the column names.
     """
-    conn = sqlite3.connect(constants.DB_PATH)
+    conn = sqlite3.connect(constants.DB_ABS_PATH)
     cursor = conn.cursor()
 
     cursor.execute(f'SELECT * FROM {table_name}')
@@ -64,7 +70,7 @@ def db_update_stats(
     """
     Update a player's stats.
     """
-    conn = sqlite3.connect(constants.DB_PATH)
+    conn = sqlite3.connect(constants.DB_ABS_PATH)
     cursor = conn.cursor()
     query = "UPDATE players SET kills=?, deaths=?, matches=? WHERE tg_id=?"
     values = (
@@ -73,6 +79,24 @@ def db_update_stats(
         new_match_count,
         tg_id
     )
+    cursor.execute(query, values)
+    conn.commit()
+    conn.close()
+
+def db_add_player(tg_id:int, fortnite_username:str):
+    """
+    Update a player's stats.
+    """
+    conn = sqlite3.connect(constants.DB_ABS_PATH)
+    cursor = conn.cursor()
+    query = """
+    INSERT INTO players (tg_id, fortnite_username)
+    VALUES (?, ?)
+    """
+    # Create a tuple of values for the prepared statement
+    values = (tg_id, fortnite_username)
+
+    # Execute the prepared statement with the values
     cursor.execute(query, values)
     conn.commit()
     conn.close()

@@ -3,8 +3,8 @@
 """
 import fortnite_api
 from handlers import constants
-from ..db.db import db_get_all_rows, db_update_stats
-
+# from ..db.db import db_get_all_rows, db_update_stats
+from db.db import db_get_all_rows, db_update_stats
 
 async def get_ranking():
     """

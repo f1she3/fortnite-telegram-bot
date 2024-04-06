@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 """
     This is the project's entry point.
 """
@@ -20,22 +22,22 @@ async def main():
     """
         CLI args handling & main logic.
     """
+    db.db_init()
     if cli_parser.args.add:
-        if cli_parser.args.username == "":
-            cli_parser.parser.error('--add requires --username')
+        if cli_parser.args.username != "" and cli_parser.args.id != 0:
+            db.db_add_player(
+                tg_id=cli_parser.args.id,
+                fortnite_username=cli_parser.args.username
+            )
         else:
-            db.db_init()
-    if cli_parser.args.stats:
-        if cli_parser.args.username == "":
-            cli_parser.parser.error('--stats requires --username')
-        else:
-            db.db_init()
+            cli_parser.parser.error('--add requires USERNAME and ID')
+
     if cli_parser.args.rank:
-        bot = Bot(constants.TELEGRAM_TOKEN)
-        ranking_msg = await rank_handler.getRankingMsg()
+        bot = Bot(constants.TG_BOT_TOKEN)
+        ranking_msg = await rank_handler.get_ranking_msg()
         async with bot:
             await bot.send_message(
-                chat_id=constants.GROUP_CHAT_ID,
+                chat_id=constants.TG_CHAT_ID,
                 text=ranking_msg,
                 parse_mode=ParseMode.HTML
             )
