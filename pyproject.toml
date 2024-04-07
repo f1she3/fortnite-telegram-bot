@@ -5,7 +5,6 @@ description = "Telegram bot for fortnite teams (stats, updates & more). Self-hos
 authors = ["f1she3 <f1she3@protonmail.com>"]
 license = "MIT"
 readme = "README.md"
-packages = [{include = "fortnite_telegram_bot"}]
 
 [tool.poetry.dependencies]
 python = "^3.12"
