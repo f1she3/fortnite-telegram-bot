@@ -3,7 +3,8 @@ Description=The service launching the ranking process.
 
 [Service]
 Type=oneshot
-ExecStart=/usr/bin/docker run --workdir /home/user/fortnite-telegram-bot fortnite-telegram-bot -r
+WorkingDirectory=/home/user
+ExecStart=/usr/bin/docker run fortnite-telegram-bot -r
 
 [Install]
 WantedBy=multi-user.target
