@@ -1,0 +1,9 @@
+[Unit]
+Description=Publishes the ranking every Saturday at 8 AM
+
+[Timer]
+OnCalendar=Sat *-*-* 08:00:00
+Persistent=true
+
+[Install]
+WantedBy=timers.target
