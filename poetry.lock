@@ -260,12 +260,12 @@ files = [
 
 [[package]]
 name = "fortnite-api"
-version = "2.6.6"
+version = "2.6.7"
 description = "A python wrapper for Fortnite-API.com"
 optional = false
 python-versions = ">=3.6.15"
 files = [
-    {file = "fortnite_api-2.6.6.tar.gz", hash = "sha256:8ea27c4e858a8786e458b3b8e3fa23fcf602f1ebe0f800d563e52268e8ecfb63"},
+    {file = "fortnite_api-2.6.7.tar.gz", hash = "sha256:7b8ef066ad55ac41006fa1bc4f3ee178cff379ab286275a403f12e24955a1a1b"},
 ]
 
 [package.dependencies]
@@ -718,4 +718,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "953f6f845b09d465c523a92b1d3eccdb2ac5b42e5be8e2ee08f9bbe854483ecf"
+content-hash = "1bdc24573f542661c83907ee1ecaa8a354633d4c64904ac279cec7704b9cff5c"
