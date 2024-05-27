@@ -9,7 +9,7 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.12"
 python-telegram-bot = "^21.2"
-fortnite-api = "^2.6.7"
+fortnite-api = "^2.6.8"
 python-dotenv = "^1.0.1"
 
 
