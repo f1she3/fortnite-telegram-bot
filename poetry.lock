@@ -272,17 +272,25 @@ files = [
 
 [[package]]
 name = "fortnite-api"
-version = "2.6.9"
+version = "3.0.0"
 description = "A python wrapper for Fortnite-API.com"
 optional = false
-python-versions = ">=3.6.15"
+python-versions = ">=3.8.0"
 files = [
-    {file = "fortnite_api-2.6.9.tar.gz", hash = "sha256:089531e193fb1a9955c5fecbb9f8a711db1040b9c442015130a8d252a880b4ce"},
+    {file = "fortnite_api-3.0.0-py3-none-any.whl", hash = "sha256:b9bb85c771bf72c0dd632e4eac29a2f1826ff1ef43f7324d1f2c2551f81c209a"},
+    {file = "fortnite_api-3.0.0.tar.gz", hash = "sha256:8aaf9afa4f3a192844bfaa68673e93ef2ae5599d6bac37debb06acfbb18cf2ae"},
 ]
 
 [package.dependencies]
-aiohttp = ">3.8.6,<4"
+aiohttp = ">=3.9.0,<4.0.0"
 requests = ">=2.22.0"
+typing-extensions = "*"
+
+[package.extras]
+dev = ["black", "discord.py", "isort", "pre-commit", "pyright"]
+docs = ["furo", "sphinx", "sphinx-copybutton", "sphinxcontrib-trio", "sphinxcontrib-websupport", "typing-extensions"]
+speed = ["orjson"]
+tests = ["pytest", "pytest-asyncio", "pytest-cov", "pytest-mock", "python-dotenv"]
 
 [[package]]
 name = "frozenlist"
@@ -608,6 +616,17 @@ files = [
 ]
 
 [[package]]
+name = "typing-extensions"
+version = "4.12.2"
+description = "Backported and Experimental Type Hints for Python 3.8+"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "typing_extensions-4.12.2-py3-none-any.whl", hash = "sha256:04e5ca0351e0f3f85c6853954072df659d0d13fac324d0072316b67d7794700d"},
+    {file = "typing_extensions-4.12.2.tar.gz", hash = "sha256:1a7ead55c7e559dd4dee8856e3a88b41225abfe1ce8df57b7c13915fe121ffb8"},
+]
+
+[[package]]
 name = "urllib3"
 version = "2.2.2"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
@@ -730,4 +749,4 @@ multidict = ">=4.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "bc7a1cbac09234b19b110f6de7b983681c954c97ce316780f533278eb7422aa8"
+content-hash = "dd686030874d99e12647aa4ac3e18c4f5f08e6cab1503ab70f6bed1cc860ba46"
